@@ -1,6 +1,8 @@
 import React, {Children, useEffect, useState} from 'react';
 import { Outlet, useLocation, useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useRef } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { appSelector, appActions } from "../../redux/appRedux";
 import {
 AppBar,
 Toolbar,
@@ -18,7 +20,9 @@ ListItemIcon,
 Drawer,
 Collapse,
 Popover,
-MenuItem as MenuItemMui
+MenuItem as MenuItemMui,
+Divider,
+Stack
 } from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu"
 import {drawerMenu, popMenu} from '../constants/menu'
@@ -161,6 +165,8 @@ const SideMenu = ({open, onClose}) => {
             }
 
 const DashboardLayout = () => {
+    const dispatch = useDispatch()
+    const pageTitle = useSelector(appSelector.pageTitle)
     const [open, setOpen] = useState(false)
     return (
         <Box sx={{ display: 'flex' }}>
@@ -173,7 +179,8 @@ const DashboardLayout = () => {
             <Box px={2} sx={{cursor:'pointer'}}>
                 <MenuIcon sx={{color:'white'}} onClick = {()=>setOpen(true)} />
             </Box>
-        <Typography
+            <Stack direction='row' sparcing={2}>
+            <Typography
         component="h1"
         variant="h6"
         color="inherit"
@@ -182,6 +189,20 @@ const DashboardLayout = () => {
         >
         Pilar Tecno Web
         </Typography>
+      
+        <Divider orientarion='vertical' variant='middle' flexItem sx={{color:'white'}}/>
+        <Typography
+        component="h1"
+        variant="h6"
+        color="inherit"
+        noWrap
+        sx={{ flexGrow: 1 }}
+        >
+        {pageTitle}  
+        </Typography>
+            </Stack>
+        
+
         <PopMenu />
         </Toolbar>
         </AppBar>

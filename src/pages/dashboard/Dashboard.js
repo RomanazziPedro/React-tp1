@@ -1,10 +1,16 @@
 import React, {useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { appSelector, appActions } from "../../redux/appRedux";
 import {
 Grid,
 Paper,
 Box
 } from '@mui/material';
 const Dashboard = () => {
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(appActions.setPageTittle('TAREAS'))
+    },[])
     return (
         <Grid container spacing={3}>
             <Grid item xs={12}>
