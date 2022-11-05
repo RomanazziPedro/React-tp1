@@ -2,6 +2,7 @@ const ADD_TODO = "ADD_TODO";
 const COMPLETE_TODO = "COMPLETE_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const SET_PAGE_NAME = 'SET_PAGE_NAME';
+const LOADING = 'LOADING';
 
 const stateInitial = {
     pageTitle: 'prueba',
@@ -26,6 +27,10 @@ export const appActions = {
     type: COMPLETE_TODO,
     payload,
     }),
+    loading: (payload) => ({
+        type: LOADING,
+        payload,
+        }),
     deleteTodo: (id) => ({
     type: DELETE_TODO,
     id,
