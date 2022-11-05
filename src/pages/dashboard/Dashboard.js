@@ -9,7 +9,7 @@ Box
 const Dashboard = () => {
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(appActions.setPageTittle('TAREAS'))
+        dispatch(appActions.setPageTitle('TABLERO'))
     },[])
     return (
         <Grid container spacing={3}>

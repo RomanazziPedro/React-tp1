@@ -22,7 +22,7 @@ const Todo = () => {
     const todo = useSelector(appSelector.todo)
 
 useEffect(()=>{
-    dispatch(appActions.setPageTittle('TAREAS'))
+    dispatch(appActions.setPageTitle('TAREAS'))
 },[])
 
     const handleChange = (e) => {

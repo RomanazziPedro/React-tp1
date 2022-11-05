@@ -14,7 +14,7 @@ export const appSelector = {
     }
 
 export const appActions = {
-    setPageTittle: (payload) => ({
+    setPageTitle: (payload) => ({
         type: SET_PAGE_NAME,
         payload,
         }),
